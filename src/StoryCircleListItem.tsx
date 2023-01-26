@@ -53,7 +53,7 @@ const StoryCircleListItem = ({
           },
           !isPressed
             ? {
-                borderColor: unPressedBorderColor ?? 'red',
+                borderColor: unPressedBorderColor ?? 'blue',
               }
             : {
                 borderColor: pressedBorderColor ?? 'grey',
