@@ -1,5 +1,6 @@
 import React, { Fragment, useRef, useState, useEffect } from 'react';
 import { Dimensions, View, Platform } from 'react-native';
+// @ts-ignore
 import Modal from 'react-native-modalbox';
 
 import StoryListItem from './StoryListItem';
@@ -23,6 +24,8 @@ export const Story = ({
   avatarSize,
   showAvatarText,
   avatarTextStyle,
+  handlePressLike,
+  handlePressComment
 }: StoryProps) => {
   const [dataState, setDataState] = useState<IUserStory[]>(data);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
@@ -93,6 +96,8 @@ export const Story = ({
     selectedData.map((x, i) => {
       return (
         <StoryListItem
+          handlePressComment={handlePressComment}
+          handlePressLike={handlePressLike}
           duration={duration * 1000}
           key={i}
           profileName={x.user_name}

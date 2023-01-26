@@ -64,6 +64,8 @@ export interface StoryListItemProps {
   onClosePress: (props?: any) => any;
   stories: IUserStoryItem[];
   currentPage: number;
+  handlePressLike?: any;
+  handlePressComment?: any;
 }
 
 export interface StoryProps {
@@ -93,4 +95,6 @@ export interface StoryProps {
   showAvatarText?: boolean;
   /** Username text style below the avatar */
   avatarTextStyle?: TextStyle;
+  handlePressLike?: any;
+  handlePressComment?: any;
 }

@@ -30,6 +30,8 @@ export const StoryListItem = ({
   profileImage,
   profileName,
   duration,
+  handlePressComment,
+  handlePressLike,
   customCloseComponent,
   customSwipeUpComponent,
   onFinish,
@@ -274,6 +276,37 @@ export const StoryListItem = ({
           </TouchableWithoutFeedback>
         </View>
       </View>
+
+      <View style={styles.customLayoutContainer}>
+        <View style={{flexDirection: 'row'}}>
+          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <Text style={styles.difficultyText}>6A</Text>
+            <View style={{ width: 20, aspectRatio: 1, backgroundColor: 'yellow', borderRadius: 50 }} />
+          </View>
+          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <TouchableOpacity
+              onPress={handlePressLike}
+            >
+              <Text>like me</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={()=>{
+                onClosePress();
+                handlePressComment();
+              }}
+            >
+
+              <Text>Comment me</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+
+        <View>
+          <Text>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et enim rem error iure est ipsam incidunt dolorum illo nulla, itaque vel sint possimus, labore voluptatum inventore molestias maiores impedit doloremque.</Text>
+        </View>
+
+      </View>
+
       {content[current].onPress && (
         <TouchableOpacity
           activeOpacity={1}
@@ -371,4 +404,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     bottom: Platform.OS == 'ios' ? 20 : 50,
   },
+  customLayoutContainer: {
+    position: 'absolute',
+    bottom: Platform.OS == 'ios' ? 40 : 100,
+    padding: 20,
+    left: 0,
+    right: 0,
+    justifyContent: 'flex-end',
+    backgroundColor: 'red'
+  },
+  difficultyText: {
+    fontSize: 20,
+    fontWeight: 'bold',
+
+  }
 });
