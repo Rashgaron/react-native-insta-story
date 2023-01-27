@@ -291,7 +291,7 @@ export const StoryListItem = ({
           <View style={{ flexDirection: 'row', alignItems: 'center' }}>
             {
               // @ts-ignore
-              likeButton(currentStory.story_id, currentStory.is_liked, userId)
+              likeButton(currentStory.story_id, userId)
             }
             {
               // @ts-ignore
