@@ -15,6 +15,8 @@ export interface IUserStory {
 export interface IUserStoryItem {
   story_id: number;
   story_image: string | undefined;
+  story_description: string | undefined;
+  story_difficulty: string | undefined;
   /** Function that gets called when the swipe up button is pressed */
   onPress?: (props?: any) => any;
   swipeText?: string;
@@ -66,6 +68,8 @@ export interface StoryListItemProps {
   currentPage: number;
   handlePressLike?: any;
   handlePressComment?: any;
+  likeButton?: ReactNode;
+  commentButton?: ReactNode;
 }
 
 export interface StoryProps {
@@ -97,4 +101,6 @@ export interface StoryProps {
   avatarTextStyle?: TextStyle;
   handlePressLike?: any;
   handlePressComment?: any;
+  likeButton?: ReactNode;
+  commentButton?: ReactNode;
 }

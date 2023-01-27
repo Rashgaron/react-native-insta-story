@@ -25,14 +25,15 @@ export const Story = ({
   showAvatarText,
   avatarTextStyle,
   handlePressLike,
-  handlePressComment
+  handlePressComment,
+  likeButton,
+  commentButton,
 }: StoryProps) => {
   const [dataState, setDataState] = useState<IUserStory[]>(data);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [currentPage, setCurrentPage] = useState<number>(0);
   const [selectedData, setSelectedData] = useState<IUserStory[]>([]);
   const cube = useRef<any>();
-
   // Component Functions
   const _handleStoryItemPress = (item: IUserStory, index?: number) => {
     const newData = dataState.slice(index);
@@ -98,6 +99,8 @@ export const Story = ({
         <StoryListItem
           handlePressComment={handlePressComment}
           handlePressLike={handlePressLike}
+          likeButton={likeButton}
+          commentButton={commentButton}
           duration={duration * 1000}
           key={i}
           profileName={x.user_name}

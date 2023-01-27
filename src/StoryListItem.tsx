@@ -32,6 +32,8 @@ export const StoryListItem = ({
   duration,
   handlePressComment,
   handlePressLike,
+  likeButton,
+  commentButton,
   customCloseComponent,
   customSwipeUpComponent,
   onFinish,
@@ -181,6 +183,7 @@ export const StoryListItem = ({
   const swipeText =
     content?.[current]?.swipeText || props.swipeText || 'Swipe Up';
 
+
   return (
     <GestureRecognizer
       key={key}
@@ -278,31 +281,26 @@ export const StoryListItem = ({
       </View>
 
       <View style={styles.customLayoutContainer}>
-        <View style={{flexDirection: 'row'}}>
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between', }}>
           <View style={{ flexDirection: 'row', alignItems: 'center' }}>
             <Text style={styles.difficultyText}>6A</Text>
             <View style={{ width: 20, aspectRatio: 1, backgroundColor: 'yellow', borderRadius: 50 }} />
           </View>
           <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-            <TouchableOpacity
-              onPress={handlePressLike}
-            >
-              <Text>like me</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={()=>{
-                onClosePress();
-                handlePressComment();
-              }}
-            >
-
-              <Text>Comment me</Text>
-            </TouchableOpacity>
+            {
+              // @ts-ignore
+              likeButton(3)
+            }
+            {
+              // @ts-ignore
+              commentButton(3)
+            }
           </View>
         </View>
 
         <View>
-          <Text>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et enim rem error iure est ipsam incidunt dolorum illo nulla, itaque vel sint possimus, labore voluptatum inventore molestias maiores impedit doloremque.</Text>
+
+          <Text>{content?.[current].story_description}</Text>
         </View>
 
       </View>
@@ -411,7 +409,7 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     justifyContent: 'flex-end',
-    backgroundColor: 'red'
+    backgroundColor: 'white',
   },
   difficultyText: {
     fontSize: 20,
