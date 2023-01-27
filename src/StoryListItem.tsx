@@ -29,6 +29,7 @@ export const StoryListItem = ({
   key,
   profileImage,
   profileName,
+  userId,
   duration,
   handlePressComment,
   handlePressLike,
@@ -183,6 +184,7 @@ export const StoryListItem = ({
   const swipeText =
     content?.[current]?.swipeText || props.swipeText || 'Swipe Up';
 
+  const currentStory = content?.[current];
 
   return (
     <GestureRecognizer
@@ -289,11 +291,11 @@ export const StoryListItem = ({
           <View style={{ flexDirection: 'row', alignItems: 'center' }}>
             {
               // @ts-ignore
-              likeButton(3)
+              likeButton(currentStory.story_id, currentStory.is_liked, userId)
             }
             {
               // @ts-ignore
-              commentButton(3)
+              commentButton(currentStory.story_id, ()=>{onClosePress()})
             }
           </View>
         </View>

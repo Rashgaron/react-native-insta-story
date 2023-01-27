@@ -17,6 +17,7 @@ export interface IUserStoryItem {
   story_image: string | undefined;
   story_description: string | undefined;
   story_difficulty: string | undefined;
+  is_liked: boolean | undefined;
   /** Function that gets called when the swipe up button is pressed */
   onPress?: (props?: any) => any;
   swipeText?: string;
@@ -54,6 +55,7 @@ export interface StoryListItemProps {
   profileName: string;
   /** Profile picture of the user - IUserStory.user_image */
   profileImage: string | undefined;
+  userId: number | undefined;
   /** Time in seconds */
   duration: number;
   /** Text of the swipe up button */

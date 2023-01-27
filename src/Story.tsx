@@ -105,6 +105,7 @@ export const Story = ({
           key={i}
           profileName={x.user_name}
           profileImage={x.user_image}
+          userId={x.user_id}
           stories={x.stories}
           currentPage={currentPage}
           onFinish={onStoryFinish}
