@@ -335,7 +335,7 @@ export const StoryListItem = ({
             </TouchableOpacity>
             {
                 // @ts-ignore
-                customModal(showModal, toggleModal, currentStory)
+                customModal(showModal, toggleModal, currentStory, ()=>onSwipeDown())
             }
         </GestureRecognizer>
     );
