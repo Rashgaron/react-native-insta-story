@@ -72,6 +72,9 @@ export interface StoryListItemProps {
   handlePressComment?: any;
   likeButton?: ReactNode;
   commentButton?: ReactNode;
+  footer?: ReactNode;
+  story?: any;
+  customModal: ReactNode;
 }
 
 export interface StoryProps {
@@ -105,4 +108,6 @@ export interface StoryProps {
   handlePressComment?: any;
   likeButton?: ReactNode;
   commentButton?: ReactNode;
+  footer?: ReactNode;
+  customModal?: ReactNode;
 }

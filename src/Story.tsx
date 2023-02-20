@@ -28,6 +28,8 @@ export const Story = ({
   handlePressComment,
   likeButton,
   commentButton,
+  footer,
+  customModal
 }: StoryProps) => {
   const [dataState, setDataState] = useState<IUserStory[]>(data);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
@@ -97,6 +99,7 @@ export const Story = ({
     selectedData.map((x, i) => {
       return (
         <StoryListItem
+          customModal={customModal}
           handlePressComment={handlePressComment}
           handlePressLike={handlePressLike}
           likeButton={likeButton}
@@ -112,6 +115,7 @@ export const Story = ({
           swipeText={swipeText}
           customSwipeUpComponent={customSwipeUpComponent}
           customCloseComponent={customCloseComponent}
+          footer={footer}
           onClosePress={() => {
             setIsModalOpen(false);
             if (onClose) {
