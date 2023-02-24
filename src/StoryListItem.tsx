@@ -92,14 +92,14 @@ export const StoryListItem = ({
             if (prevCurrent) {
                 if (
                     current > prevCurrent &&
-                    content[current - 1].story_image ==
-                        content[current].story_image
+                    content[current - 1].storyImage ==
+                        content[current].storyImage
                 ) {
                     start();
                 } else if (
                     current < prevCurrent &&
-                    content[current + 1].story_image ==
-                        content[current].story_image
+                    content[current + 1].storyImage ==
+                        content[current].storyImage
                 ) {
                     start();
                 }
@@ -210,7 +210,7 @@ export const StoryListItem = ({
                 <View style={styles.backgroundContainer}>
                     <Image
                         onLoadEnd={() => start()}
-                        source={{ uri: content[current].story_image }}
+                        source={{ uri: content[current].storyImage }}
                         style={styles.image}
                     />
                     {load && (
@@ -311,7 +311,10 @@ export const StoryListItem = ({
                     >
                         {
                             // @ts-ignore
-                            footer({...currentStory, author_id: userId}, onClosePress)
+                            footer(
+                                { ...currentStory, authorId: userId },
+                                onClosePress,
+                            )
                         }
                     </View>
                 </View>
@@ -335,7 +338,9 @@ export const StoryListItem = ({
             </TouchableOpacity>
             {
                 // @ts-ignore
-                customModal(showModal, toggleModal, currentStory, ()=>onSwipeDown())
+                customModal(showModal, toggleModal, currentStory, () =>
+                    onSwipeDown(),
+                )
             }
         </GestureRecognizer>
     );
