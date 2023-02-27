@@ -75,6 +75,8 @@ export interface StoryListItemProps {
     footer?: ReactNode;
     story?: any;
     customModal: ReactNode;
+    showModal: boolean;
+    toggleModal: ()=>void;
 }
 
 export interface StoryProps {

@@ -43,9 +43,10 @@ export const StoryListItem = ({
     stories,
     currentPage,
     customModal,
+    showModal,
+    toggleModal,
     ...props
 }: StoryListItemProps) => {
-    const [showModal, setShowModal] = useState<boolean>(false);
     const [load, setLoad] = useState<boolean>(true);
     const [pressed, setPressed] = useState<boolean>(false);
     const [content, setContent] = useState<IUserStoryItem[]>(
@@ -139,7 +140,8 @@ export const StoryListItem = ({
     }
 
     function onSwipeDown(_props?: any) {
-        setShowModal(false);
+        if(showModal) toggleModal();
+        // setShowModal(false);
         onClosePress();
     }
 
@@ -194,7 +196,6 @@ export const StoryListItem = ({
         content?.[current]?.swipeText || props.swipeText || 'Swipe Up';
 
     const currentStory = content?.[current];
-    const toggleModal = () => setShowModal(!showModal);
     return (
         <GestureRecognizer
             key={key}

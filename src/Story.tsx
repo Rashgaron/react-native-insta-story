@@ -35,6 +35,8 @@ export const Story = ({
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
     const [currentPage, setCurrentPage] = useState<number>(0);
     const [selectedData, setSelectedData] = useState<IUserStory[]>([]);
+    const [showStoryInfoModal, setShowStoryInfoModal] = useState<boolean>(false);
+    const toggleModal = () => setShowStoryInfoModal(!showStoryInfoModal);
     const cube = useRef<any>();
     // Component Functions
     const _handleStoryItemPress = (item: IUserStory, index?: number) => {
@@ -70,6 +72,7 @@ export const Story = ({
 
     function onStoryFinish(state: NextOrPrevious) {
         if (!isNullOrWhitespace(state)) {
+            setShowStoryInfoModal(false);
             if (state == 'next') {
                 const newPage = currentPage + 1;
                 if (newPage < selectedData.length) {
@@ -99,6 +102,8 @@ export const Story = ({
         selectedData.map((x, i) => {
             return (
                 <StoryListItem
+                    toggleModal={toggleModal}
+                    showModal={showStoryInfoModal}
                     customModal={customModal}
                     handlePressComment={handlePressComment}
                     handlePressLike={handlePressLike}
@@ -134,6 +139,7 @@ export const Story = ({
                     ref={cube}
                     callBackAfterSwipe={(x: any) => {
                         if (x != currentPage) {
+                            setShowStoryInfoModal(false);
                             setCurrentPage(parseInt(x));
                         }
                     }}
@@ -147,6 +153,7 @@ export const Story = ({
                     ref={cube}
                     callBackAfterSwipe={(x: any) => {
                         if (x != currentPage) {
+                            setShowStoryInfoModal(false);
                             setCurrentPage(parseInt(x));
                         }
                     }}
