@@ -35,8 +35,10 @@ export const Story = ({
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
     const [currentPage, setCurrentPage] = useState<number>(0);
     const [selectedData, setSelectedData] = useState<IUserStory[]>([]);
-    const [showStoryInfoModal, setShowStoryInfoModal] = useState<boolean>(false);
+    const [showStoryInfoModal, setShowStoryInfoModal] =
+        useState<boolean>(false);
     const toggleModal = () => setShowStoryInfoModal(!showStoryInfoModal);
+
     const cube = useRef<any>();
     // Component Functions
     const _handleStoryItemPress = (item: IUserStory, index?: number) => {
@@ -49,6 +51,10 @@ export const Story = ({
         setSelectedData(newData);
         setIsModalOpen(true);
     };
+
+    useEffect(() => {
+        setDataState(data);
+    }, [data]);
 
     useEffect(() => {
         handleSeen();

@@ -140,7 +140,7 @@ export const StoryListItem = ({
     }
 
     function onSwipeDown(_props?: any) {
-        if(showModal) toggleModal();
+        if (showModal) toggleModal();
         // setShowModal(false);
         onClosePress();
     }
@@ -430,7 +430,7 @@ const styles = StyleSheet.create({
     customLayoutContainer: {
         width: '100%',
         position: 'absolute',
-        bottom: Platform.OS == 'ios' ? 40 : 100,
+        bottom: 40,
         // padding: 20,
         left: 0,
         right: 0,
